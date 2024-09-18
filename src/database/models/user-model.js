@@ -9,8 +9,8 @@ const rechargeSchema = new Schema({
   },
   status: {
     type: Schema.Types.String,
-    enum: ["FINALIZADA", "PENDENTE", "RECUSADA", "CANCELADA"],
-    default: "PENDENTE",
+    enum: ["FINISHED", "PENDING", "REFUSED", "CANCELLED"],
+    default: "PENDING",
   },
 });
 
