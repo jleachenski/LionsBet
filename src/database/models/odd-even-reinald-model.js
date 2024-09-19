@@ -1,10 +1,10 @@
-import mongoose from "mongoose";
+import conn from "../conn.js";
 
-const OddEvenBetSchema = new mongoose.Schema({
+const OddEvenBetSchema = new conn.Schema({
   numbers: [Number],
   status: String,
   bet: Object,
 });
 
-const OddEvenBet = mongoose.model("OddEvenBet", OddEvenBetSchema);
+const OddEvenBet = conn.model("OddEvenBet", OddEvenBetSchema);
 export default OddEvenBet;
