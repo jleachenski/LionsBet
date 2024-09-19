@@ -1,5 +1,5 @@
 import e from "express";
-import old_even_reinald_controler from "../controllers/old-even-reinald-controler.js";
+import old_even_reinald_controler from "../controllers/odd-even-reinald-controller.js";
 
 const router = e.Router();
 

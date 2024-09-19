@@ -1,4 +1,4 @@
-import OddEvenBet from "../../database/models/odd-even-bet-model.js";
+import OddEvenBet from "../../database/models/odd-even-reinald-model.js";
 
 const store = async (req, res) => {
   try {
@@ -8,7 +8,8 @@ const store = async (req, res) => {
     const isEven = number % 2 === 0;
 
     // Define o status da aposta com base na escolha do usuário
-    req.body.bet.status = req.body.bet.choice === (isEven ? "EVEN" : "ODD") ? "WON" : "LOST";
+    req.body.bet.status =
+      req.body.bet.choice === (isEven ? "EVEN" : "ODD") ? "WON" : "LOST";
 
     // Salva o número sorteado
     req.body.numbers = [number];
@@ -41,7 +42,10 @@ const show = async (req, res) => {
 
 const update = async (req, res) => {
   try {
-    const content = await OddEvenBet.findByIdAndUpdate(req.params.id, req.body).exec();
+    const content = await OddEvenBet.findByIdAndUpdate(
+      req.params.id,
+      req.body
+    ).exec();
     res.json(content);
   } catch (error) {
     res.status(400).json(error);
