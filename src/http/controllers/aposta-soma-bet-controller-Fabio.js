@@ -2,9 +2,9 @@ import ApostaSomaBet from '../../database/models/aposta-soma-bet-model-Fabio.js'
 
 const store = async (req, res) => {
     try {
-        const number1 = Math.floor(Math.random() * 9);
-        const number2 = Math.floor(Math.random() * 9);
-        const number3 = Math.floor(Math.random() * 9);
+        const number1 = Math.ceil(Math.random() * 9);
+        const number2 = Math.ceil(Math.random() * 9);
+        const number3 = Math.ceil(Math.random() * 9);
         const drawnNumber = number1 + number2 + number3;
 
         req.body.betNumber == drawnNumber
@@ -25,7 +25,6 @@ const index = async (req, res) => {
         const content = await ApostaSomaBet.find(req.query).exec();
         res.json(content);
     } catch (error) {
-        console.log(error);
         res.status(400).json(error)
     }
 };
