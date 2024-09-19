@@ -8,4 +8,4 @@ router.get("/", jackpot_bet_controller.index)
 router.get("/:id", jackpot_bet_controller.show)
 router.put("/:id", jackpot_bet_controller.update)
 
-export default router
+export default router;
