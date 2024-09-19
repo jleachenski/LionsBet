@@ -2,9 +2,9 @@ import Craps from "../../database/models/craps-model.js";
 
 const store = async (req, res) => {
   try {
-    const rand1 = Math.ceil(Math.random()*6);
-    const rand2 = Math.ceil(Math.random()*6);
     for(let c=1; c<=3; c++){
+        const rand1 = Math.ceil(Math.random()*6);
+        const rand2 = Math.ceil(Math.random()*6);
         if(req.body.roll == c){
             (rand1 == req.body.dice1 
             && rand2 == req.body.dice2)
