@@ -8,7 +8,8 @@ const app = e();
 app.use(e.json());
 app.use("/user", user_router);
 app.use("/roullete-bet", roullete_bet_router);
-app.use("/jackpot-bet", jackpot_bet_router)
+app.use("/jackpot-bet", jackpot_bet_router);
+app.use("/blackjack-bet", blackjack_bet_router)
 
 app.listen(process.env.API_PORT, () => {
   console.log("Aplicação rodando");
