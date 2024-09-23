@@ -1,4 +1,4 @@
-import Craps from "../../database/models/craps-model.js";
+import Craps from "../../database/models/craps-bet-model-neves.js";
 
 const store = async (req, res) => {
   try {

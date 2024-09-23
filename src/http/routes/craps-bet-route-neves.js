@@ -1,5 +1,5 @@
 import e from "express";
-import craps_controller from "../controllers/craps-controller.js";
+import craps_controller from "../controllers/craps-bet-controller-neves.js";
 
 const router = e.Router();
 
