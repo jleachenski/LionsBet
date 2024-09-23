@@ -7,8 +7,8 @@ const store = async (req, res) => {
     const playerNumber = parseInt(req.params.number, 10);
 
     playerNumber === dado1 || playerNumber === dado2
-      ? (req.body.bet.status = "won")
-      : (req.body.bet.status = "lost");
+      ? (req.body.Bet.status = "WON")
+      : (req.body.Bet.status = "LOST");
 
     req.body.numbers = [dado1, dado2];
 
