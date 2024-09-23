@@ -21,7 +21,6 @@ const index = async (req, res) => {
     const content = await RoulleteBet.find(req.query).exec();
     res.json(content);
   } catch (error) {
-    console.log(error);
     res.status(400).json(error);
   }
 };
