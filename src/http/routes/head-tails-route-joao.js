@@ -1,5 +1,5 @@
 import e from "express"
-import head_tails_controller from "../controllers/head-tails-controller.js"
+import head_tails_controller from "../controllers/head-tails-controller-joao.js"
 
 const router = e.Router();
 

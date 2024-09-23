@@ -1,4 +1,4 @@
-import headTailsBet from "../../database/models/head-tails-model.js"
+import headTailsBet from "../../database/models/head-tails-model-joao.js"
 
 const store = async (req, res) => {
     try {
