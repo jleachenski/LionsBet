@@ -6,7 +6,7 @@ const Schema = conn.Schema;
 const DiceBetSchema = new Schema({
   numbers: {
     type: [Schema.Types.Number],
-    validate: (v) => v.length == 1,
+    validate: (v) => v.length == 2,
     required: true,
   },
   bet: betSchema,
