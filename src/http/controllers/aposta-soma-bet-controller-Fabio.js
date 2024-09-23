@@ -34,7 +34,6 @@ const show = async (req, res) => {
         const content = await ApostaSomaBet.findById(req.params.id).exec();
         res.json(content);
     } catch (error) {
-        console.log(error);
         res.status(400).json(error)
     }
 };
@@ -44,7 +43,6 @@ const update = async (req, res) => {
         const content = await ApostaSomaBet.findByIdAndUpdate(req.params.id, req.body).exec();
         res.json(content);
     } catch (error) {
-        console.log(error);
         res.status(400).json(error)
     }
 };
