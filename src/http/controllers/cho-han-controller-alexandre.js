@@ -6,9 +6,10 @@ const store = async (req, res) => {
     req.body.drawnOdd =
       Math.floor(Math.random() * 6 + 1) + Math.floor(Math.random() * 6 + 1);
 
-    if (drawnOdd % 2 == 0) {
-      drawnOdd = "odd";
-    } else drawnOdd = "even";
+    if (req.body.drawnOdd % 2 == 0) {
+      req.body.drawnOdd = "ODD";
+    } else req.body.drawnOdd = "EVEN";
+
 
     req.body.drawnOdd == req.body.betChohan
       ? (req.body.bet.status = "WON")
