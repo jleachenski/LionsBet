@@ -1,4 +1,4 @@
-import PrizeBet from "../../database/models/prize-bet-model.js"
+import PrizeBet from "../../database/models/prize-bet-model-kayke.js"
 
 const rollDice = () => {
     return[

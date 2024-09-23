@@ -1,5 +1,5 @@
 import e from "express";
-import prize_bet_controller from "../controllers/prize-bet-controller.js"
+import prize_bet_controller from "../controllers/prize-bet-controller-kayke.js"
 
 const router = e.Router();
 
