@@ -3,6 +3,7 @@ import e from "express";
 import user_router from "./http/routes/user-route.js";
 import roullete_bet_router from "./http/routes/roullete-bet-route.js";
 import jackpot_bet_router from "./http/routes/jackpot-bet-route.js";
+import dice_bet_router_vincent from "./http/routes/dice-bet-route-vincent.js";
 import prize_bet_router_kayke from "./http/routes/prize-bet-router-kayke.js";
 import european_roulette_router_jean from "./http/routes/(JEAN FELIPE) european-roulette-route.js";
 import head_tails_router_joao from "./http/routes/head-tails-route-joao.js";
@@ -16,6 +17,7 @@ app.use(e.json());
 app.use("/user", user_router);
 app.use("/roullete-bet", roullete_bet_router);
 app.use("/jackpot-bet", jackpot_bet_router);
+app.use("/dice-bet-vincent", dice_bet_router_vincent);
 app.use("/prize-bet-kayke", prize_bet_router_kayke);
 app.use("/european-roullete-bet-jean", european_roulette_router_jean)
 app.use("/headTails-bet-joao", head_tails_router_joao);
