@@ -2,7 +2,6 @@ import ChoHanBet from "../../database/models/cho-han-model-alexandre.js";
 
 const store = async (req, res) => {
   try {
-    req.body.betChohan = parseInt(req.body.betChohan);
     req.body.drawnOdd =
       Math.floor(Math.random() * 6 + 1) + Math.floor(Math.random() * 6 + 1);
 
