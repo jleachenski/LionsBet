@@ -14,11 +14,11 @@ const store = async (req, res) => {
 
        //INÍCIO DA GERAÇÃO DE NÚMERO DA ROLETA
        const roulette = Math.ceil(Math.random() * 36)
-       //FIM DA GERAÇÃO DE NNÚMERO DA ROLETA
+       //FIM DA GERAÇÃO DE NÚMERO DA ROLETA
 
        attempt.Collor == collor && attempt.Roulette == roulette
-       ? (req.body.roulette.status = "YOU WON")
-       : (req.body.roulette.status = "YOU LOSE")
+       ? (req.body.roulette.status = "WON")
+       : (req.body.roulette.status = "LOST")
 
        await EuropeanRoulette.create(req.body)
        res.json()
