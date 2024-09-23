@@ -4,7 +4,7 @@ const store = async (req, res) => {
   try {
     const dado1 = Math.floor(Math.random() * 6) + 1;
     const dado2 = Math.floor(Math.random() * 6) + 1;
-    const playerNumber = parseInt(req.params.number, 12);
+    const playerNumber = parseInt(req.params.number, 10);
 
     playerNumber === dado1 || playerNumber === dado2
       ? (req.body.bet.status = "won")
