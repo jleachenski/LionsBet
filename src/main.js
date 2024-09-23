@@ -3,6 +3,7 @@ import e from "express";
 import user_router from "./http/routes/user-route.js";
 import roullete_bet_router from "./http/routes/roullete-bet-route.js";
 import jackpot_bet_router from "./http/routes/jackpot-bet-route.js";
+import sicbo_bet_router_capri from "./http/routes/sicbo-bet-route-gbc.js";
 import craps_bet_router_kevin from "./http/routes/craps-bet-route-kevin.js";
 import dice_bet_router_vincent from "./http/routes/dice-bet-route-vincent.js";
 import prize_bet_router_kayke from "./http/routes/prize-bet-router-kayke.js";
@@ -17,8 +18,9 @@ const app = e();
 app.use(e.json());
 app.use("/user", user_router);
 app.use("/roullete-bet", roullete_bet_router);
-app.use("/craps-bet-kevin", craps_bet_router_kevin);
 app.use("/jackpot-bet", jackpot_bet_router);
+app.use("/sicbo-bet-gbc", sicbo_bet_router_capri)
+app.use("/craps-bet-kevin", craps_bet_router_kevin);
 app.use("/dice-bet-vincent", dice_bet_router_vincent);
 app.use("/prize-bet-kayke", prize_bet_router_kayke);
 app.use("/european-roullete-bet-jean", european_roulette_router_jean)
