@@ -1,5 +1,5 @@
 import e from "express";
-import sicbo_bet_Controller from "../controllers/sicbo-bet-controller.js";
+import sicbo_bet_Controller from "../controllers/sicbo-bet-controller-gbc.js";
 
 const router = e.Router();
 

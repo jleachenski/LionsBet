@@ -17,9 +17,8 @@ const sicBoBetSchema = new Schema({
         required: true,
     },
     bet: betSchema,
-}, {
-  timestamps: true,
-});
+}
+);
 
 const SicBoBet = conn.model("SicBoBet", sicBoBetSchema);
 
