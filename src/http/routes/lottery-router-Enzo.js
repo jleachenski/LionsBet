@@ -1,14 +1,20 @@
-const express = require('express');
-const controller = require('./lottery-controller');
+import express from 'express';
+import {
+  index,
+  store,
+  get,
+  show,
+  update,
+  deleteLottery
+} from './lottery-controller-Enzo.js';
 
 const router = express.Router();
 
-router.get('/start', controller.startGame);
+router.post('/', createLottery);
+router.get('/', getLotteries);
+router.get('/:id', getLotteryById);
+router.put('/:id', updateLottery);
+router.delete('/:id', deleteLottery);
+router.post('/check-result', checkResult); 
 
-router.post('/check', (req, res) => {
-  const userNumbers = req.body.numbers;
-  const result = controller.checkResult(userNumbers);
-  res.json(result);
-});
-
-module.exports = router;
+export default router;
