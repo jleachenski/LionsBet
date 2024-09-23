@@ -10,6 +10,7 @@ const store = async (req, res) => {
       req.body.drawnOdd = "ODD";
     } else req.body.drawnOdd = "EVEN";
 
+
     req.body.drawnOdd == req.body.betChohan
       ? (req.body.bet.status = "WON")
       : (req.body.bet.status = "LOST");

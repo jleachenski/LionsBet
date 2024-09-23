@@ -16,6 +16,7 @@ app.use("/craps-bet-neves", craps_router_neves);
 app.use("/craps-bet-caio", craps_router_caio);
 app.use("/chohan-alexandre", cho_han_router_alexandre);
 
+
 app.listen(process.env.API_PORT, () => {
   console.log("Aplicação rodando");
 });
