@@ -2,8 +2,21 @@ import headTailsBet from "../../database/models/head-tails-model-joao.js"
 
 const store = async (req, res) => {
     try {
+        if(req.body.betChoose == 1){
+            req.body.betChoose = "COROA"
+        }else if(req.body.betChoose == 2){
+            req.body.betChoose = "CARA"
+        }else{
+            res.status(400).json("Opção inválida")
+        }
+
         const jogarMoeda = () => Math.floor(Math.random() * 2) + 1
         req.body.coinValue = jogarMoeda();
+        if(req.body.coinValue == 1){
+            req.body.coinValue = "COROA"
+        }else if(req.body.coinValue == 2){
+            req.body.coinValue = "CARA"
+        }
         req.body.betChoose == req.body.coinValue
         ? (req.body.bet.status = "WON")
         : (req.body.bet.status = "LOST")
