@@ -7,7 +7,7 @@ const ChoHanBetSchema = new Schema({
   bet: betSchema,
   betChohan: {
     type: Schema.Types.String,
-    validate: (v) => v == "odd" || "even",
+    validate: (v) => v == "ODD" || "EVEN",
     required: true,
   },
 });
