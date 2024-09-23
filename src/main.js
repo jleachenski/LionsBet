@@ -3,7 +3,7 @@ import e from "express";
 import user_router from "./http/routes/user-route.js";
 import roullete_bet_router from "./http/routes/roullete-bet-route.js";
 import jackpot_bet_router from "./http/routes/jackpot-bet-route.js";
-import craps_router_neves from "./http/routes/craps-route.js";
+import craps_router_neves from "./http/routes/craps-bet-route-neves.js";
 import craps_router_caio from "./http/routes/craps-route-caio.js"
 const app = e();
 
