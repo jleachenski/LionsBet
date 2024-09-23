@@ -1,4 +1,4 @@
-import ChoHanBet from "../../database/models/cho-han-model.js";
+import ChoHanBet from "../../database/models/cho-han-model-alexandre.js";
 
 const store = async (req, res) => {
   try {
