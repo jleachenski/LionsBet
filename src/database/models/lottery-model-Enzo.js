@@ -12,11 +12,8 @@ const lotterySchema = new mongoose.Schema({
     winningNumbers: {
         type: [Number],
         required: true,
-    },
-    prize: {
-        type: Number,
-        required: true,
     }
+    
 });
 
 const Lottery = mongoose.model('Lottery', lotterySchema);

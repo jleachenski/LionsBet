@@ -10,11 +10,11 @@ import {
 
 const router = express.Router();
 
-router.post('/', createLottery);
-router.get('/', getLotteries);
-router.get('/:id', getLotteryById);
-router.put('/:id', updateLottery);
+router.post('/', index);
+router.get('/', update);
+router.get('/:id', get);
+router.put('/:id', show);
 router.delete('/:id', deleteLottery);
-router.post('/check-result', checkResult); 
+router.post('/', store); 
 
 export default router;

@@ -15,7 +15,7 @@ const index = async (req, res) => {
             name: req.body.name,
             drawDate: req.body.drawDate,
             winningNumbers,
-            prize: req.body.prize,
+            prize: 10000000,
         });
         await lottery.save();
         res.status(201).json(lottery);
