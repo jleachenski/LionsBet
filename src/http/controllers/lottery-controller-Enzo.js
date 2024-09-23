@@ -27,7 +27,7 @@ const index = async (req, res) => {
 const store = async (req, res) => {
     try {
         const { lotteryId, userNumbers } = req.body;
-        const lottery = await Lottery.findById(lotteryId);
+        const lottery = await Lottery.findById(lotteryId).exec();
         if (!lottery) {
             return res.status(404).json({ message: 'Lottery not found' });
         }
@@ -49,7 +49,7 @@ const store = async (req, res) => {
 
  const get = async (req, res) => {
     try {
-        const lotteries = await Lottery.find();
+        const lotteries = await Lottery.find().exec();
         res.status(200).json(lotteries);
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -58,7 +58,7 @@ const store = async (req, res) => {
 
 const show = async (req, res) => {
     try {
-        const lottery = await Lottery.findById(req.params.id);
+        const lottery = await Lottery.findById(req.params.id).exec();
         if (!lottery) {
             return res.status(404).json({ message: 'Lottery not found' });
         }
@@ -70,7 +70,7 @@ const show = async (req, res) => {
 
 const update = async (req, res) => {
     try {
-        const lottery = await Lottery.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        const lottery = await Lottery.findByIdAndUpdate(req.params.id, req.body, { new: true }).exec();
         if (!lottery) {
             return res.status(404).json({ message: 'Lottery not found' });
         }
@@ -82,7 +82,7 @@ const update = async (req, res) => {
 
 const deleteLottery = async (req, res) => {
     try {
-        const lottery = await Lottery.findByIdAndDelete(req.params.id);
+        const lottery = await Lottery.findByIdAndDelete(req.params.id).exec();
         if (!lottery) {
             return res.status(404).json({ message: 'Lottery not found' });
         }
