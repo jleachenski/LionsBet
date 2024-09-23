@@ -5,17 +5,10 @@ const Schema = conn.Schema;
 
 const ChoHanBetSchema = new Schema({
   bet: betSchema,
-  betNumber: {
-    type: Schema.Types.Number,
+  betChohan: {
+    type: Schema.Types.String,
+    validate: (v) => v == "odd" || "even",
     required: true,
-    min: 1,
-    max: 100,
-  },
-  drawnNumber: {
-    type: Schema.Types.Number,
-    required: true,
-    min: 1,
-    max: 100,
   },
 });
 

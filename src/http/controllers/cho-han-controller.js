@@ -2,10 +2,15 @@ import ChoHanBet from "../../database/models/cho-han-model.js";
 
 const store = async (req, res) => {
   try {
-    req.body.betNumber = parseInt(req.body.betNumber);
-    req.body.drawnNumber = Math.ceil(Math.random() * 100);
+    req.body.betChohan = parseInt(req.body.betChohan);
+    req.body.drawnOdd =
+      Math.floor(Math.random() * 6 + 1) + Math.floor(Math.random() * 6 + 1);
 
-    req.body.drawnNumber == req.body.betNumber
+    if (drawnOdd % 2 == 0) {
+      drawnOdd = "odd";
+    } else drawnOdd = "even";
+
+    req.body.drawnOdd == req.body.betChohan
       ? (req.body.bet.status = "WON")
       : (req.body.bet.status = "LOST");
 
