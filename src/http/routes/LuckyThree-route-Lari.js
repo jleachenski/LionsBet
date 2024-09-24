@@ -7,6 +7,5 @@ router.post("/", LuckyThree_controller.store)
 router.get("/", LuckyThree_controller.index)
 router.get("/:id", LuckyThree_controller.show)
 router.put("/:id", LuckyThree_controller.update)
-router.delete("/:id", LuckyThree_controller.destroy)
 
 export default router

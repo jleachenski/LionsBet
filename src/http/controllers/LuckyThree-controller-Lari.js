@@ -1,25 +1,42 @@
-import LuckyThree from "../../database/models/LuckyThree-model-Lari.js";
+import LuckyThreeBet from "../../database/models/LuckyThree-model-Lari.js";
 
 const store = async (req, res) => {
-  let numbers = []
-  while (numbers.length < 3) {
-    let number = Math.floor(Math.random() * 30) + 1
-    if(!numbers.includes(number)) {
-        numbers.push(number)
-    }
-  }
-
   try {
-    await LuckyThree.create(req.body);
-    res.json();
+    const { Numbers, BetAmount } = req.body;
+    const drawnNumbers = Array.from({ length: 3 }, () => Math.floor(Math.random() * 30) + 1); //drawnNumbers = numeros sorteados
+    const Hits = Numbers.filter(num => drawnNumbers.includes(num)).length; //Hits = Acertos do jogador
+
+    let status = "LOST";
+    let prize = 0;
+
+    if (Hits > 0) {
+      status = Hits >= 2 ? "WON" : "PARTIAL";
+      prize = BetAmount * (Hits / 3);  
+    }
+
+    const bet = await LuckyThreeBet.create({
+      bet: {
+        value: BetAmount,
+        status: status
+      },
+      Numbers,
+      DrawnNumbers: drawnNumbers,
+      BetAmount,
+      Prize: prize
+    });
+
+    res.status(201).json({
+      message: `Você acertou ${Hits} número(s)!`,
+      bet
+    });
   } catch (error) {
-    res.status(400).json(error);
+    res.status(400).json({ error: error.message });
   }
 };
 
 const index = async (req, res) => {
     try {
-        const content = await LuckyThree.find(req.query).exec()
+        const content = await LuckyThreeBet.find(req.query).exec()
         res.json(content);
     } catch (error) {
         res.status(400).json(error);
@@ -28,7 +45,7 @@ const index = async (req, res) => {
 
 const show = async (req, res) => {
     try {
-        const content = await LuckyThree.findById(req.params.id).exec()
+        const content = await LuckyThreeBet.findById(req.params.id).exec()
         res.json(content);
     } catch (error) {
         res.status(400).json(error);
@@ -37,26 +54,17 @@ const show = async (req, res) => {
 
 const update = async (req, res) => {
     try {
-        await LuckyThree.findByIdAndUpdate(req.params.id).exec()
-        res.json();
+      const content = await LuckyThreeBet.findByIdAndUpdate(req.params.id, req.body, { new: true }).exec();
+      res.json(content);
     } catch (error) {
-        res.status(400).json(error);
+      res.status(400).json(error);
     }
-}
-
-const destroy = async (req, res) => {
-    try {
-        await LuckyThree.findByIdAndDelete(req.params.id).exec()
-        res.json();
-    } catch (error) {
-        res.status(400).json(error);
-    }
-}
+  };
+  
 
 export default {
     store,
     index,
     show,
     update,
-    destroy
 }

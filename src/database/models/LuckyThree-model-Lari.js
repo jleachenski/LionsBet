@@ -1,21 +1,42 @@
 import conn from "../conn.js"
+import betSchema from "../bet-schema.js"
+
 const Schema = conn.Schema;
 
-const betSchema = new Schema({ //numeros da aposta
-  numbers: {
-    type: Schema.Types.Number,
-    validator: function(v) {
-        return v.length === 3 && v.every(num => num >= 1 && num <= 30)   
-    }, 
+const LuckyThreeSchema = new Schema({ //numeros da aposta
+  bet: betSchema,
+
+  Numbers: {
+    type: [Schema.Types.Number],
+    required: true,
+    validator: {
+      validator: function(v){
+        return v.length === 3;
+      },
+      message: "Voce deve escolher 3 numeros"
+    }
+
+  },
+
+  DrawnNumbers: {
+    type: [Schema.Types.Number],
     required: true
     },
-    bet: {
+
+    BetAmount: {
       type: Schema.Types.Number,
-      required : true
+      required: true,
+      min: 1,
+    },
+    
+    Prize: {
+      type: Schema.Types.Number,
+      default: 0
     }
 })
 
+const LuckyThreeBet = conn.model("LuckyThreeBet", LuckyThreeSchema)
 
-export default betSchema;
+export default LuckyThreeBet;
 
 
