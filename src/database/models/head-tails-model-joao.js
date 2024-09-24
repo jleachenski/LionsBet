@@ -6,16 +6,14 @@ const Schema = conn.Schema;
 const headTailsSchema = new Schema ({
     bet: betSchema,
     betChoose: {
-        type: Schema.Types.Number,
+        type: Schema.Types.String,
         required: true,
-        min: 1,
-        max: 2
+        enum: ["CARA", "COROA"]
     },
     coinValue: {
-        type: Schema.Types.Number,
+        type: Schema.Types.String,
         required: true,
-        min: 1,
-        max: 2
+        enum: ["CARA", "COROA"]
     }
 })
 
